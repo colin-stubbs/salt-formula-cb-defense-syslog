@@ -2,7 +2,7 @@
 
 {# process from https://developer.carbonblack.com/2017/06/cb-defense-syslog-connector-1.2.3-released/ #}
 
-{% from "cb_defense_syslog/map.jinja" import cb_defense_syslog_settings with context %}
+{% from "cb-defense-syslog/map.jinja" import cb_defense_syslog_settings with context %}
 
 cb-open-source-repo:
   file.managed:
