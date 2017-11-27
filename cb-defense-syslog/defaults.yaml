@@ -1,0 +1,5 @@
+cb_defense_syslog:
+  lookup:
+    locations:
+      log_dir: /var/log/cb/integrations/cb-defense-syslog
+      config_dir: /etc/cb/integrations/cb-defense-syslog
