@@ -1,23 +1,25 @@
-cb_defense_syslog:
-  lookup:
-    pkgs:
-      - python-cb-defense-syslog
-    locations:
-      log_dir: /var/log/cb/integrations/cb-defense-syslog
-      config_dir: /etc/cb/integrations/cb-defense-syslog
-  config:
-    - general:
-      - template: '{{source}}|{{version}}|{{vendor}}|{{product}}|{{dev_version}}|{{signature}}|{{name}}|{{severity}}|{{extension}}'
-      - output_type: tcp
-      - tcp_out: syslog.server:6514
-    - tls:
-      - ca_cert: /etc/cb/integrations/cb-defense/cert.pem
-      - tls_verify: 'true'
-    - cbdefense1:
-      - connector_id: F8KF111111
-      - api_key: WT9T3QDP4UGCK2NS96111111
-      - server_url: https://server.yourcompany.com
-    - cbdefense:
-      - connector_id: F8KF111111
-      - api_key: WT9T3QDP4UGCK2NS96111111
-      - server_url: https://server2.yourcompany.com
+cb:
+  defense:
+    syslog:
+      lookup:
+        pkgs:
+          - python-cb-defense-syslog
+        locations:
+          log_dir: /var/log/cb/integrations/cb-defense-syslog
+          config_dir: /etc/cb/integrations/cb-defense-syslog
+      config:
+        - general:
+          - template: '{{source}}|{{version}}|{{vendor}}|{{product}}|{{dev_version}}|{{signature}}|{{name}}|{{severity}}|{{extension}}'
+          - output_type: tcp
+          - tcp_out: syslog.server:6514
+        - tls:
+          - ca_cert: /etc/cb/integrations/cb-defense/cert.pem
+          - tls_verify: 'true'
+        - cbdefense1:
+          - connector_id: F8KF111111
+          - api_key: WT9T3QDP4UGCK2NS96111111
+          - server_url: https://server.yourcompany.com
+        - cbdefense:
+          - connector_id: F8KF111111
+          - api_key: WT9T3QDP4UGCK2NS96111111
+          - server_url: https://server2.yourcompany.com

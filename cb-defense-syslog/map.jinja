@@ -4,13 +4,13 @@
     'default': {
       'pkgs': [ 'python-cb-defense-syslog' ],
     },
-  }, grain='os_family', default='default', merge=salt['pillar.get']('cb_defense_syslog:lookup')) %}
+  }, grain='os_family', default='default', merge=salt['pillar.get']('cb:defense:syslog:lookup')) %}
 
-{% do default_settings.cb_defense_syslog.update(os_family_map) %}
+{% do default_settings.cb.defense.syslog.lookup.update(os_family_map) %}
 
 {% set cb_defense_syslog_settings = salt['pillar.get'](
-    'cb_defense_syslog',
-    default=default_settings.cb_defense_syslog,
+    'cb:defense:syslog',
+    default=default_settings.cb.defense.syslog,
     merge=True,
   )
 %}
