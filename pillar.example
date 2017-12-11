@@ -9,7 +9,7 @@ cb:
           config_dir: /etc/cb/integrations/cb-defense-syslog
       config:
         - general:
-          - template: '{{source}}|{{version}}|{{vendor}}|{{product}}|{{dev_version}}|{{signature}}|{{name}}|{{severity}}|{{extension}}'
+          - template: '\{\{source\}\}|\{\{version\}\}|\{\{vendor\}\}|\{\{product\}\}|\{\{dev_version\}\}|\{\{signature\}\}|\{\{name\}\}|\{\{severity\}\}|\{\{extension\}\}'
           - output_type: tcp
           - tcp_out: syslog.server:6514
         - tls:

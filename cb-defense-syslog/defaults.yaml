@@ -5,3 +5,8 @@ cb:
         locations:
           log_dir: /var/log/cb/integrations/cb-defense-syslog
           config_dir: /etc/cb/integrations/cb-defense-syslog
+      config:
+      - general:
+        - template: '\{\{source\}\}|\{\{version\}\}|\{\{vendor\}\}|\{\{product\}\}|\{\{dev_version\}\}|\{\{signature\}\}|\{\{name\}\}|\{\{severity\}\}|\{\{extension\}\}'
+        - output_type: udp
+        - udp_out: 127.0.0.1:514
