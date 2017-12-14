@@ -40,7 +40,7 @@ cb-defense-syslog-pkgs:
     - group: root
     - mode: 0640
     - context:
-      cb_defense_syslog_map: cb_defense_syslog_settings
+      cb_defense_syslog_map: {{ cb_defense_syslog_settings }}
     - require:
       - pkg: cb-defense-syslog-pkgs
 
