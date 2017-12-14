@@ -8,7 +8,11 @@ cb-open-source-repo:
   file.managed:
     - name: {{ cb_defense_syslog_settings.lookup.repo_config.destination_name }}
     - source: {{ cb_defense_syslog_settings.lookup.repo_config.source }}
+    {% if cb_defense_syslog_settings.lookup.repo_config.skip_verify == False %}
     - source_hash: {{ cb_defense_syslog_settings.lookup.repo_config.source_hash }}
+    {% else %}
+    - skip_verify: True
+    {% endif %}
     - user: root
     - group: root
     - mode: 0644
