@@ -5,7 +5,7 @@ cb:
         repo_config:
           destination_name: /etc/yum.repos.d/CbOpenSource.repo
           source: https://opensource.carbonblack.com/release/x86_64/CbOpenSource.repo
-          source_bash: 8077e126abf08ffd04ed3d02767810a0c0a8a59a6b529b1a7e4507b54ed83212
+          source_hash: 8077e126abf08ffd04ed3d02767810a0c0a8a59a6b529b1a7e4507b54ed83212
         locations:
           log_dir: /var/log/cb/integrations/cb-defense-syslog
           config_dir: /etc/cb/integrations/cb-defense-syslog
