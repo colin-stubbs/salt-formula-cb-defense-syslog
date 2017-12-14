@@ -6,8 +6,9 @@
 
 cb-open-source-repo:
   file.managed:
-    - name: /etc/yum.repos.d/CbOpenSource.repo
-    - source: https://opensource.carbonblack.com/release/x86_64/CbOpenSource.repo
+    - name: {{ cb_defense_syslog_settings.lookup.repo_config.destination_name }}
+    - source: {{ cb_defense_syslog_settings.lookup.repo_config.source }}
+    - source_hash: {{ cb_defense_syslog_settings.lookup.repo_config.source_hash }}
     - user: root
     - group: root
     - mode: 0644
