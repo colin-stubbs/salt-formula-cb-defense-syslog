@@ -10,3 +10,7 @@ cb:
         - template: '\{\{source\}\}|\{\{version\}\}|\{\{vendor\}\}|\{\{product\}\}|\{\{dev_version\}\}|\{\{signature\}\}|\{\{name\}\}|\{\{severity\}\}|\{\{extension\}\}'
         - output_type: udp
         - udp_out: 127.0.0.1:514
+      cron:
+        manage: True
+        task:
+          minute: 0

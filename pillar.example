@@ -24,4 +24,6 @@ cb:
           - api_key: WT9T3QDP4UGCK2NS96111111
           - server_url: https://server2.yourcompany.com
       cron:
-        minute: 0
+        manage: True
+        task:
+          minute: '*/5'

@@ -37,22 +37,22 @@ cb-defense-syslog-pkgs:
     - require:
       - pkg: cb-defense-syslog-pkgs
 
-{% if 'cron' in cb_defense_syslog_settings and cb_defense_syslog_settings.cron.items() != {} %}
+{% if 'cron' in cb_defense_syslog_settings and cb_defense_syslog_settings.cron.manage == True and cb_defense_syslog_settings.cron.task.items() != {} %}
 cron-cb-defense-syslog:
   cron.present:
-    {% if not 'name' in cb_defense_syslog_settings.cron %}
+    {% if not 'name' in cb_defense_syslog_settings.cron.task %}
     - name: /usr/share/cb/integrations/cb-defense-syslog/cb-defense-syslog --config-file {{ cb_defense_syslog_settings.lookup.locations.config_dir }}/cb-defense-syslog.conf --log-file {{ cb_defense_syslog_settings.lookup.locations.log_dir }}/cb-defense-syslog.log
     {% endif %}
-    {% if not 'identifier' in cb_defense_syslog_settings.cron %}
+    {% if not 'identifier' in cb_defense_syslog_settings.cron.task %}
     - identifier: SALT-CB-DEFENSE-SYSLOG
     {% endif %}
-    {% if not 'user' in cb_defense_syslog_settings.cron %}
+    {% if not 'user' in cb_defense_syslog_settings.cron.task %}
     - user: root
     {% endif %}
-    {% if not 'minute' in cb_defense_syslog_settings.cron %}
+    {% if not 'minute' in cb_defense_syslog_settings.cron.task %}
     - minute: 0
     {% endif %}
-    {% for name, value in cb_defense_syslog_settings.cron.items() %}
+    {% for name, value in cb_defense_syslog_settings.cron.task.items() %}
     - {{ name }}: {{ value }}
     {% endfor %}
     - require:
