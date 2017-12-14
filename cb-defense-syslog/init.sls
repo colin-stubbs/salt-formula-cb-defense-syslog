@@ -37,15 +37,28 @@ cb-defense-syslog-pkgs:
     - require:
       - pkg: cb-defense-syslog-pkgs
 
+{% if 'cron' in cb_defense_syslog_settings and cb_defense_syslog_settings.cron.items() != {} %}
 cron-cb-defense-syslog:
   cron.present:
+    {% if not 'name' in cb_defense_syslog_settings.cron %}
     - name: /usr/share/cb/integrations/cb-defense-syslog/cb-defense-syslog --config-file {{ cb_defense_syslog_settings.lookup.locations.config_dir }}/cb-defense-syslog.conf --log-file {{ cb_defense_syslog_settings.lookup.locations.log_dir }}/cb-defense-syslog.log
+    {% endif %}
+    {% if not 'identifier' in cb_defense_syslog_settings.cron %}
     - identifier: SALT-CB-DEFENSE-SYSLOG
+    {% endif %}
+    {% if not 'user' in cb_defense_syslog_settings.cron %}
     - user: root
+    {% endif %}
+    {% if not 'minute' in cb_defense_syslog_settings.cron %}
     - minute: 0
+    {% endif %}
+    {% for name, value in cb_defense_syslog_settings.cron.items() %}
+    - {{ name }}: {{ value }}
+    {% endfor %}
     - require:
       - pkg: cb-defense-syslog-pkgs
       - file: {{ cb_defense_syslog_settings.lookup.locations.log_dir }}
       - file: {{ cb_defense_syslog_settings.lookup.locations.config_dir }}/cb-defense-syslog.conf
+{% endif %}
 
 {# EOF #}

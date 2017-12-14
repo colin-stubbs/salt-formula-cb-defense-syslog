@@ -23,3 +23,5 @@ cb:
           - connector_id: F8KF111111
           - api_key: WT9T3QDP4UGCK2NS96111111
           - server_url: https://server2.yourcompany.com
+      cron:
+        minute: 0
