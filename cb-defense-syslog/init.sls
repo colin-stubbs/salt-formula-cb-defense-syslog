@@ -50,10 +50,10 @@ cron-cb-defense-syslog:
     - user: root
     {% endif %}
     {% if not 'minute' in cb_defense_syslog_settings.cron.task %}
-    - minute: 0
+    - minute: '0'
     {% endif %}
     {% for name, value in cb_defense_syslog_settings.cron.task.items() %}
-    - {{ name }}: {{ value }}
+    - {{ name }}: '{{ value }}'
     {% endfor %}
     - require:
       - pkg: cb-defense-syslog-pkgs
